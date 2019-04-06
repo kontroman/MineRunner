@@ -68,41 +68,39 @@ public class PlayerController1 : MonoBehaviour
         if (armor > 0)
             armor -= 1;
         else
-        hp -= damage;
+            hp -= damage;
 
         RunnerController.DrawHP(hp);
         RunnerController.DrawArmor(armor);
         gameObject.GetComponent<AudioSource>().Play();
-        //StartCoroutine(scintillationSteve());
-    }
-
-    IEnumerator scintillationSteve()
-    {
-        ConstPlayer.GetComponent<SkinnedMeshRenderer>().enabled = false;
-        yield return new WaitForSeconds(0.2f);
-        ConstPlayer.GetComponent<SkinnedMeshRenderer>().enabled = true;
-        yield return new WaitForSeconds(0.2f);
-        ConstPlayer.GetComponent<SkinnedMeshRenderer>().enabled = false;
-        yield return new WaitForSeconds(0.2f);
-        ConstPlayer.GetComponent<SkinnedMeshRenderer>().enabled = true;
     }
 
     public void MoveCharacterLeft()
     {
         if (currentLane == 2)
         {
-            player.transform.position = Vector3.MoveTowards(CenterPosition, LeftPosition, 0.2f);
+            player.transform.position = Vector3.MoveTowards(CenterPosition, LeftPosition, 10);
             currentLane = 1;
+        }
+        if (currentLane == 3)
+        {
+            player.transform.position = Vector3.MoveTowards(RightPosition, CenterPosition, 10);
+            currentLane = 2;
         }
     }
 
     public void MoveCharacterRight()
     {
-        if (currentLane == 1)
+        if (currentLane == 2)
         {
-            player.transform.position = Vector3.MoveTowards(LeftPosition, CenterPosition, 0.2f);
+            player.transform.position = Vector3.MoveTowards(CenterPosition, RightPosition, 10);
+            currentLane = 3;
+        }
+            if (currentLane == 1)
+        {
+            player.transform.position = Vector3.MoveTowards(LeftPosition, CenterPosition, 10);
             currentLane = 2;
         }
-    }
 
+    }
 }

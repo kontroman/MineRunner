@@ -13,3 +13,9 @@ public class CloudController : MonoBehaviour
         }
     }
 }
+
+
+
+
+
+        // АНИМАЦИЯ ОДНОЙ КООРДИНАТЫ

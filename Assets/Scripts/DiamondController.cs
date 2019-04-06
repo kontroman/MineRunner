@@ -28,9 +28,9 @@ public class DiamondController : MonoBehaviour
 
     private Vector3 SelectDirection() //на какую линию его пихаем
     {
-        LeftSide = new Vector3(-1.5f, 0.4f, directionZ);
+        LeftSide = new Vector3(-1.4f, 0.4f, directionZ);
         CenterSide = new Vector3(0f, 0.4f, directionZ);
-        RightSide = new Vector3(1.5f, 0.4f, directionZ);
+        RightSide = new Vector3(1.4f, 0.4f, directionZ);
         Vector3 direction = new Vector3(0f, 0f, directionZ);
         int random2;
         switch (random)
