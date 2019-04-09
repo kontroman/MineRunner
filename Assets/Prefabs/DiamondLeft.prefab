@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6112873839374636326}
   - component: {fileID: 6112873839374636249}
   - component: {fileID: 6112873839374636251}
+  - component: {fileID: 3560465626754763270}
   m_Layer: 0
   m_Name: Diamond (1)
   m_TagString: Untagged
@@ -106,6 +107,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &3560465626754763270
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6112873839374636253}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6112873839842497051
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +135,7 @@ GameObject:
   - component: {fileID: 6112873839842497124}
   - component: {fileID: 6112873839842497127}
   - component: {fileID: 6112873839842497049}
+  - component: {fileID: 456418414026774305}
   m_Layer: 0
   m_Name: Diamond (6)
   m_TagString: Untagged
@@ -212,6 +230,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &456418414026774305
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6112873839842497051}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6112873840036109851
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +258,7 @@ GameObject:
   - component: {fileID: 6112873840036109924}
   - component: {fileID: 6112873840036109927}
   - component: {fileID: 6112873840036109849}
+  - component: {fileID: 3600571122650764446}
   m_Layer: 0
   m_Name: Diamond (3)
   m_TagString: Untagged
@@ -318,6 +353,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &3600571122650764446
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6112873840036109851}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6112873840094395509
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +381,7 @@ GameObject:
   - component: {fileID: 6112873840094395518}
   - component: {fileID: 6112873840094395505}
   - component: {fileID: 6112873840094395507}
+  - component: {fileID: 3937416515734302943}
   m_Layer: 0
   m_Name: Diamond (8)
   m_TagString: Untagged
@@ -424,6 +476,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &3937416515734302943
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6112873840094395509}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6112873840196377414
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +504,7 @@ GameObject:
   - component: {fileID: 6112873840196377411}
   - component: {fileID: 6112873840196377410}
   - component: {fileID: 6112873840196377412}
+  - component: {fileID: 6682263651789466199}
   m_Layer: 0
   m_Name: Diamond (7)
   m_TagString: Untagged
@@ -530,6 +599,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6682263651789466199
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6112873840196377414}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6112873840263538705
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +627,7 @@ GameObject:
   - component: {fileID: 6112873840263538714}
   - component: {fileID: 6112873840263538717}
   - component: {fileID: 6112873840263538719}
+  - component: {fileID: 3536138975832018999}
   m_Layer: 0
   m_Name: Diamond (2)
   m_TagString: Untagged
@@ -636,6 +722,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &3536138975832018999
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6112873840263538705}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6112873840273934482
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +750,7 @@ GameObject:
   - component: {fileID: 6112873840273934495}
   - component: {fileID: 6112873840273934494}
   - component: {fileID: 6112873840273934480}
+  - component: {fileID: 7869364578301584511}
   m_Layer: 0
   m_Name: Diamond (5)
   m_TagString: Untagged
@@ -742,6 +845,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &7869364578301584511
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6112873840273934482}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6112873840442888783
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +873,7 @@ GameObject:
   - component: {fileID: 6112873840442888776}
   - component: {fileID: 6112873840442888779}
   - component: {fileID: 6112873840442888781}
+  - component: {fileID: 9064401487981344193}
   m_Layer: 0
   m_Name: Diamond
   m_TagString: Untagged
@@ -848,6 +968,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &9064401487981344193
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6112873840442888783}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6112873840985004603
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,7 +994,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6112873840985004600}
   m_Layer: 0
-  m_Name: DiamondLine2
+  m_Name: DiamondLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -899,6 +1035,7 @@ GameObject:
   - component: {fileID: 6112873841053960934}
   - component: {fileID: 6112873841053960857}
   - component: {fileID: 6112873841053960859}
+  - component: {fileID: 2632759531837271126}
   m_Layer: 0
   m_Name: Diamond (4)
   m_TagString: Untagged
@@ -993,3 +1130,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2632759531837271126
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6112873841053960861}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

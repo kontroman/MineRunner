@@ -11,6 +11,11 @@ public class ButtonsController : MonoBehaviour {
     public GameObject SkinsMenu;
     public GameObject Player;
 
+    private void Start()
+    {
+        SaveLoad.Load();
+    }
+
     private void PlaySound()
     {
         gameObject.GetComponent<AudioSource>().Play();

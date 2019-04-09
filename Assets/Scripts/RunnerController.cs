@@ -9,12 +9,13 @@ public class RunnerController : MonoBehaviour
     public Text BoosterText2;
     public Text BoosterText3;
     public Text BoosterText4;
-    public Text DiamondText;
-    public Text scoreText;
-    private int score;
+    public  Text DiamondText;
+    public  Text scoreText;
+    private static int score;
     private bool doubleScore = false;
     public static bool doubleDiamon = false;
     public GameObject pauseMenu;
+    public GameObject deathMenu;
 
     public static Vector3[] coordiantesHP = new Vector3[6];
     public static Vector3[] coordiantesArmor = new Vector3[6];
@@ -22,14 +23,21 @@ public class RunnerController : MonoBehaviour
     private static GameObject prefabArmor;
     private static GameObject hpPref;
     private static GameObject ArmorPref;
-    private bool paused = false;
+    private static bool paused = false;
 
-    private GameObject bos1;
-    private GameObject bos2;
-    private GameObject bos3;
-    private GameObject bos4;
-    private GameObject PauseButtonInCanvas;
-    private GameObject DiamondImage;
+    private  GameObject bos1;
+    private  GameObject bos2;
+    private  GameObject bos3;
+    private  GameObject bos4;
+    private  GameObject PauseButtonInCanvas;
+    private  GameObject DiamondImage;
+
+    public  Text BestScoreText;
+    public  Text ScoreText;
+
+    private GameObject ClickSound;
+
+    private int PlusScore = 1;
 
     public static int Diamonds;
 
@@ -69,6 +77,10 @@ public class RunnerController : MonoBehaviour
 
     private void Start()
     {
+        ClickSound = GameObject.FindGameObjectWithTag("ClickSound");
+        deathMenu.SetActive(false);
+        PlusScore = 1;
+        Time.timeScale = 1;
         score = 0;
         Diamonds = 0;
 
@@ -123,10 +135,12 @@ public class RunnerController : MonoBehaviour
         else
             BoosterText4.text = "" + GameController.Booster4;
     }
+
     void Drink()
     {
         GameObject.FindGameObjectWithTag("Drink").GetComponent<AudioSource>().Play();
-    }
+    } //звук питья
+
     void NoDrink()
     {
         GameObject.FindGameObjectWithTag("NoDrink").GetComponent<AudioSource>().Play();
@@ -140,22 +154,30 @@ public class RunnerController : MonoBehaviour
         {
             if (doubleScore)
             {
-                score += 3;
+                score += PlusScore * 3;
             }
 
             else
             {
-                score += 1;
+                score += PlusScore;
             }
             scoreText.text = "" + score;
+        }
+
+        if (PlayerController1.hp <= 0)
+        {
+            DrawArmor(0);
+            DrawHP(0);
+            Death();
+            PlayerController1.hp++;
         }
     }
 
     public void UseBooster1()
     {
-        if(GameController.Booster1 > 0)
+        if(GameController.Booster1 > 0 && PlayerController1.armor < 6)
         {
-            PlayerController1.armor++;
+            PlayerController1.armor += 2;
             DrawArmor(PlayerController1.armor);
             GameController.Booster1 -= 1;
             UpdateTextBoosters();
@@ -163,6 +185,7 @@ public class RunnerController : MonoBehaviour
         }else
         NoDrink();
     }
+
     public void UseBooster2()
     {
         if(GameController.Booster2 > 0)
@@ -175,11 +198,13 @@ public class RunnerController : MonoBehaviour
         }else
         NoDrink();
     }
+
     IEnumerator deactiveteDoubleDiamonds()
     {
         yield return new WaitForSeconds(30);
         doubleDiamon = false;
     }
+
     public void UseBooster3()
     {
         if (GameController.Booster3 > 0)
@@ -192,11 +217,13 @@ public class RunnerController : MonoBehaviour
         }else
         NoDrink();
     }
+
     IEnumerator deactiveteDoubleScore()
     {
         yield return new WaitForSeconds(30);
         doubleScore = false;
     }
+
     public void UseBooster4()
     {
         if(GameController.Booster4 > 0 && PlayerController1.speed > 1)
@@ -209,9 +236,9 @@ public class RunnerController : MonoBehaviour
         NoDrink();
     }
 
-
     public void PauseButton() //хуя длинная функция
     {
+        ClickSound.GetComponent<AudioSource>().Play();
         if (paused)
         {
             pauseMenu.SetActive(false);
@@ -244,8 +271,43 @@ public class RunnerController : MonoBehaviour
 
     public void MainMenuButton()
     {
+        ClickSound.GetComponent<AudioSource>().Play();
+        SaveLoad.Save();
         Time.timeScale = 1;
         paused = false;
         Application.LoadLevel(0);
+    }
+
+    void Death()
+    {
+        Debug.Log(GameController.Diamonds);
+        GameController.Diamonds += Diamonds;
+        Debug.Log(GameController.Diamonds);
+        PlusScore = 0;
+        deathMenu.SetActive(true);
+        ScoreText = GameObject.FindGameObjectWithTag("YourScore").GetComponent<Text>();
+        BestScoreText = GameObject.FindGameObjectWithTag("HighScore").GetComponent<Text>();
+        if (GameController.HighScore <= score)
+            GameController.HighScore = score;  
+        
+        BestScoreText.text = "" + GameController.HighScore;
+        ScoreText.text = "" + score;
+        PauseButtonInCanvas.SetActive(false);
+        DiamondImage.SetActive(false);
+        scoreText.enabled = false;
+        DiamondText.enabled = false;
+        bos1.SetActive(false);
+        bos2.SetActive(false);
+        bos3.SetActive(false);
+        bos4.SetActive(false);
+        Time.timeScale = 0;
+        SaveLoad.Save();
+    }
+
+    public void Restart()
+    {
+        ClickSound.GetComponent<AudioSource>().Play();
+        SaveLoad.Save();
+        Application.LoadLevel(Application.loadedLevel);
     }
 }

@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerController1 : MonoBehaviour
 {
     private static float directionZ;
-    private Vector3 CenterPosition = new Vector3(0.1f, 0, directionZ);
-    private Vector3 LeftPosition = new Vector3(-1.2f, 0, directionZ);
-    private Vector3 RightPosition = new Vector3(1.4f, 0, directionZ);
+    public static Vector3 CenterPosition = new Vector3(0.1f, 0, directionZ);
+    public static Vector3 LeftPosition = new Vector3(-1.2f, 0, directionZ);
+    public static Vector3 RightPosition = new Vector3(1.4f, 0, directionZ);
     private int currentLane = 2;
 
     private GameObject ConstPlayer;
-    public GameObject player;
+    public static GameObject player;
     private Vector3 _move;
 
     public static float speed = 1;
@@ -21,19 +21,27 @@ public class PlayerController1 : MonoBehaviour
     public static int hp = 6;
     public static int armor = 0;
 
+    public  Rigidbody rb;
+
     private void Awake()
     {
         ConstPlayer = GameObject.FindGameObjectWithTag("PlayerConst");
-        if(GameController.currentSkin != 0)
+        if (GameController.currentSkin != 0)
         {
             ConstPlayer.GetComponent<Renderer>().material = ShopController.Shop.mat[GameController.currentSkin];
         }
         speed = 1;
     }
 
+    private void Start()
+    {
+        hp = 6;
+        armor = 0;
+    }
 
     void Update()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         directionZ = player.transform.position.z;
         RightPosition = new Vector3(1.4f, 0, directionZ);
         LeftPosition = new Vector3(-1.2f, 0, directionZ);
@@ -52,6 +60,10 @@ public class PlayerController1 : MonoBehaviour
             _move = new Vector3(0, 0, 2);
         }
         player.transform.Translate(_move * speed * Time.deltaTime * 5, Space.World);
+        directionZ = player.transform.position.z;
+        RightPosition = new Vector3(1.4f, 0, directionZ);
+        LeftPosition = new Vector3(-1.2f, 0, directionZ);
+        CenterPosition = new Vector3(0.1f, 0, directionZ);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -60,13 +72,20 @@ public class PlayerController1 : MonoBehaviour
         {
             GetDamage(2);
         }
+        if(other.gameObject.tag == "TNT")
+        {
+            armor = 0;
+            hp = 0;
+            GameObject.FindGameObjectWithTag("TNTSOUND").GetComponent<AudioSource>().Play();
+            Destroy(other.gameObject);
+        }
     }
 
 
     void GetDamage(int damage)
     {
         if (armor > 0)
-            armor -= 1;
+            armor -= damage;
         else
             hp -= damage;
 
@@ -75,32 +94,4 @@ public class PlayerController1 : MonoBehaviour
         gameObject.GetComponent<AudioSource>().Play();
     }
 
-    public void MoveCharacterLeft()
-    {
-        if (currentLane == 2)
-        {
-            player.transform.position = Vector3.MoveTowards(CenterPosition, LeftPosition, 10);
-            currentLane = 1;
-        }
-        if (currentLane == 3)
-        {
-            player.transform.position = Vector3.MoveTowards(RightPosition, CenterPosition, 10);
-            currentLane = 2;
-        }
-    }
-
-    public void MoveCharacterRight()
-    {
-        if (currentLane == 2)
-        {
-            player.transform.position = Vector3.MoveTowards(CenterPosition, RightPosition, 10);
-            currentLane = 3;
-        }
-            if (currentLane == 1)
-        {
-            player.transform.position = Vector3.MoveTowards(LeftPosition, CenterPosition, 10);
-            currentLane = 2;
-        }
-
-    }
 }

@@ -25,6 +25,17 @@ TagManager:
   - DiamondImage
   - Enemy
   - Cleaner
+  - TreeCam
+  - Location
+  - DeathMenu
+  - HighScore
+  - YourScore
+  - TNT
+  - TNTSOUND
+  - ClickSound
+  - NewLocation
+  - Forest
+  - Village
   layers:
   - Default
   - TransparentFX

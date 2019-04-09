@@ -28,7 +28,7 @@ public class SaveLoad : MonoBehaviour
         GameController.skins[3] = PlayerPrefs.GetInt("AvailableSkin4", 0);
         GameController.skins[4] = PlayerPrefs.GetInt("AvailableSkin5", 0);
         GameController.skins[5] = PlayerPrefs.GetInt("AvailableSkin6", 0);
-        GameController.Diamonds = PlayerPrefs.GetInt("Diamonds", 0);
+        GameController.Diamonds = PlayerPrefs.GetInt("Diamonds", 8124);
         GameController.HighScore = PlayerPrefs.GetInt("HighScore", 0);
         GameController.currentSkin = PlayerPrefs.GetInt("CurrentSkin", 0);
         GameController.Booster1 = PlayerPrefs.GetInt("Boosters1", 0);
