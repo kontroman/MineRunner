@@ -30,8 +30,11 @@ public class EnemiesController : MonoBehaviour
         if (time < 0)
         {
             time = 0.3f;
-            CreateEnemy();
-            directionZ += 12;
+            if(directionZ - PlayerController1.player.transform.position.z <= 100)
+            {
+                CreateEnemy();
+                directionZ += 12;
+            }
         }
     }
 
@@ -94,10 +97,10 @@ public class EnemiesController : MonoBehaviour
                 }
                 break;
             case 1:
-                direction = new Vector3(1.6f, 0.35f, directionZ);
+                direction = new Vector3(2.5f, 0.5f, directionZ);
                 break;
             case 2:
-                direction = new Vector3(-1.6f, 0.35f, directionZ);
+                direction = new Vector3(0f,.5f, directionZ);
                 break;
             case 3:
                 SecondWayRandom = Random.Range(0, 2);

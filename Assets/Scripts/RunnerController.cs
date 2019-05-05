@@ -11,7 +11,7 @@ public class RunnerController : MonoBehaviour
     public Text BoosterText4;
     public  Text DiamondText;
     public  Text scoreText;
-    private static int score;
+    public static int score;
     private bool doubleScore = false;
     public static bool doubleDiamon = false;
     public GameObject pauseMenu;
@@ -91,7 +91,6 @@ public class RunnerController : MonoBehaviour
         bos3 = GameObject.FindGameObjectWithTag("CBoost3");
         bos4 = GameObject.FindGameObjectWithTag("CBoost4");
 
-        Application.targetFrameRate = 60;
         coordiantesArmor[0] = new Vector3(-85f, -535f, 0);
         coordiantesArmor[1] = new Vector3(-50f, -535f, 0);
         coordiantesArmor[2] = new Vector3(-15f, -535f, 0);

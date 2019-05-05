@@ -61,7 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\pidaras.cs" />
     <Compile Include="Assets\Scripts\ButtonsController.cs" />
     <Compile Include="Assets\Scripts\Cleaner.cs" />
     <Compile Include="Assets\Scripts\CloudController.cs" />
@@ -70,11 +69,14 @@
     <Compile Include="Assets\Scripts\EnemiesController.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\LocationController.cs" />
+    <Compile Include="Assets\Scripts\pidaras.cs" />
     <Compile Include="Assets\Scripts\PlayerController1.cs" />
+    <Compile Include="Assets\Scripts\Quests.cs" />
     <Compile Include="Assets\Scripts\RoadWTF.cs" />
     <Compile Include="Assets\Scripts\RunnerController.cs" />
     <Compile Include="Assets\Scripts\SaveLoad.cs" />
     <Compile Include="Assets\Scripts\ShopController.cs" />
+    <Compile Include="Assets\Scripts\showFPS.cs" />
     <Compile Include="Assets\Scripts\SteeveRotation.cs" />
     <Compile Include="Assets\Scripts\Swipe.cs" />
     <Compile Include="Assets\Scripts\SwipeController.cs" />

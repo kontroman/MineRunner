@@ -35,13 +35,13 @@ public class ShopController : MonoBehaviour
 
     public void Start()
     {
+        SaveLoad.Load();
         YourDiamond.text = "" + GameController.Diamonds;
         //BuyText = GameObject.FindGameObjectWithTag("BuyText").GetComponent<Text>();
         //PriceText = GameObject.FindGameObjectWithTag("Price").GetComponent<Text>();
         Player.SetActive(true);
         WhichSkinNow = GameController.currentSkin;
-
-        
+        Player.GetComponent<Renderer>().material = mat[WhichSkinNow];
     }
 
     public void MoveSkinLeft() //Уменьшаем материал скина - был 4, стал 3

@@ -51,8 +51,11 @@ public class PlayerController1 : MonoBehaviour
             speed = 1;
         if (timer <= 0)
         {
-            speed += .1f;
-            timer = 15;
+            if (speed < 1.5)
+            {
+                speed += .1f;
+                timer = 15;
+            }
 
         }
         if (transform.localScale.x > 0)

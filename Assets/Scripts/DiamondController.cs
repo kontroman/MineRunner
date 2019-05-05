@@ -10,6 +10,7 @@ public class DiamondController : MonoBehaviour
     public GameObject prefabCenter;
     public GameObject prefabLeft;
     public GameObject prefabRight;
+    public GameObject prefab3Lines;
     public int random;
 
     private static float directionZ = 98;
@@ -74,13 +75,16 @@ public class DiamondController : MonoBehaviour
                         break;
                 }
                 break;
+            case 4:
+                direction = CenterSide;
+                break;
         }
         return direction;
     }
 
     private GameObject SelectPrefab() // какой из трех префабов создаем
     {
-        random = Random.Range(1, 4);
+        random = Random.Range(1, 5);
         GameObject SelectedObject = prefabCenter;
         switch (random)
         {
@@ -93,6 +97,9 @@ public class DiamondController : MonoBehaviour
             case 3:
                 SelectedObject = prefabRight;
                 break;
+            case 4:
+                SelectedObject = prefab3Lines;
+                break;
         }
         return SelectedObject;
     }
@@ -103,8 +110,11 @@ public class DiamondController : MonoBehaviour
         if(time <= 0)
         {
             time = 1;
-            CreateDiamondLine();
-            directionZ += 30f;
+            if (directionZ - PlayerController1.player.transform.position.z <= 100)
+            {
+                CreateDiamondLine();
+                directionZ += 30f;
+            }
         }
     }
 
