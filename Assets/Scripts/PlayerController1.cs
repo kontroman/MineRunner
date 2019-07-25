@@ -8,7 +8,7 @@ public class PlayerController1 : MonoBehaviour
     public static Vector3 CenterPosition = new Vector3(0.1f, 0, directionZ);
     public static Vector3 LeftPosition = new Vector3(-1.2f, 0, directionZ);
     public static Vector3 RightPosition = new Vector3(1.4f, 0, directionZ);
-    private int currentLane = 2;
+    //private int currentLane = 2; по консоли нигде не юзается
 
     private GameObject ConstPlayer;
     public static GameObject player;

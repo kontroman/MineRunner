@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -267,14 +267,14 @@ public class RunnerController : MonoBehaviour
             paused = true;
         }
     }
-
+     
     public void MainMenuButton()
     {
         ClickSound.GetComponent<AudioSource>().Play();
         SaveLoad.Save();
         Time.timeScale = 1;
         paused = false;
-        Application.LoadLevel(0);
+        SceneManager.LoadScene(0);
     }
 
     void Death()
@@ -307,6 +307,6 @@ public class RunnerController : MonoBehaviour
     {
         ClickSound.GetComponent<AudioSource>().Play();
         SaveLoad.Save();
-        Application.LoadLevel(Application.loadedLevel);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

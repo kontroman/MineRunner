@@ -13,7 +13,9 @@ public class Quests : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Selecting quest");
         quest = SelectQuest();
+        Debug.Log(quest.Discription);
         taskText.text = quest.Discription;
     }
 
@@ -61,7 +63,7 @@ public class Quest
 
     public bool CheckForComplete(int target)
     {
-        if (Target >= target)
+        if (Target <= target)
             isDone = true;
         return isDone;
     }
