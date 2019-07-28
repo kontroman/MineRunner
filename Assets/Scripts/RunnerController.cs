@@ -243,10 +243,7 @@ public class RunnerController : MonoBehaviour
             pauseMenu.SetActive(false);
             Time.timeScale = 1;
             paused = false;
-            bos1.SetActive(true);
-            bos2.SetActive(true);
-            bos3.SetActive(true);
-            bos4.SetActive(true);
+            ActiveteBoosters();
             PauseButtonInCanvas.SetActive(true);
             DiamondImage.SetActive(true);
             scoreText.enabled = true;
@@ -258,10 +255,7 @@ public class RunnerController : MonoBehaviour
             DiamondImage.SetActive(false);
             scoreText.enabled = false;
             DiamondText.enabled = false;
-            bos1.SetActive(false);
-            bos2.SetActive(false);
-            bos3.SetActive(false);
-            bos4.SetActive(false);
+            DeactiveteBoosters();
             pauseMenu.SetActive(true);
             Time.timeScale = 0;
             paused = true;
@@ -279,9 +273,7 @@ public class RunnerController : MonoBehaviour
 
     void Death()
     {
-        Debug.Log(GameController.Diamonds);
         GameController.Diamonds += Diamonds;
-        Debug.Log(GameController.Diamonds);
         PlusScore = 0;
         deathMenu.SetActive(true);
         ScoreText = GameObject.FindGameObjectWithTag("YourScore").GetComponent<Text>();
@@ -291,14 +283,12 @@ public class RunnerController : MonoBehaviour
         
         BestScoreText.text = "" + GameController.HighScore;
         ScoreText.text = "" + score;
+        DeactiveteBoosters();
         PauseButtonInCanvas.SetActive(false);
         DiamondImage.SetActive(false);
         scoreText.enabled = false;
         DiamondText.enabled = false;
-        bos1.SetActive(false);
-        bos2.SetActive(false);
-        bos3.SetActive(false);
-        bos4.SetActive(false);
+
         Time.timeScale = 0;
         SaveLoad.Save();
     }
@@ -308,5 +298,21 @@ public class RunnerController : MonoBehaviour
         ClickSound.GetComponent<AudioSource>().Play();
         SaveLoad.Save();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void DeactiveteBoosters()
+    {
+        bos1.SetActive(false);
+        bos2.SetActive(false);
+        bos3.SetActive(false);
+        bos4.SetActive(false);
+    }
+
+    private void ActiveteBoosters()
+    {
+        bos1.SetActive(true);
+        bos2.SetActive(true);
+        bos3.SetActive(true);
+        bos4.SetActive(true);
     }
 }

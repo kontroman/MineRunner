@@ -19,6 +19,8 @@ public class SaveLoad : MonoBehaviour
         PlayerPrefs.SetInt("Boosters2", GameController.Booster2);
         PlayerPrefs.SetInt("Boosters3", GameController.Booster3);
         PlayerPrefs.SetInt("Boosters4", GameController.Booster4);
+        PlayerPrefs.SetInt("LastCoinsQuest", Quests.lastQuestCoins);
+        PlayerPrefs.SetInt("LastScoreQuest", Quests.lastQuestScore);
     }
 
     public static void Load()
