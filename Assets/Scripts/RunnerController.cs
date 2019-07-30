@@ -291,6 +291,7 @@ public class RunnerController : MonoBehaviour
 
         Time.timeScale = 0;
         SaveLoad.Save();
+        Quests.CompleteTask();
     }
 
     public void Restart()

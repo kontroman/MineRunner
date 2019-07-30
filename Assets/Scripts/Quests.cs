@@ -9,9 +9,9 @@ public class Quests : MonoBehaviour
     public static int lastQuestCoins;
     public static int lastQuestScore;
     public int HighScore;
-    public int localTarget;
-    private int random;
-    Quest quest;
+    public static int localTarget;
+    private static int random;
+    static Quest quest;
 
 
     void Initializing()
@@ -27,27 +27,25 @@ public class Quests : MonoBehaviour
         taskText.text = quest.Discription;
     }
 
-    public bool CompleteTask()
+    public static bool CompleteTask()
     {
-        Debug.Log(quest.Target);
-        return quest.CheckForComplete(getCurrentTarget());
+        return quest.CheckForComplete(GetCurrentTarget());
     }
 
-    int getCurrentTarget()
+    static int GetCurrentTarget()
     {
         switch (random)
         {
             case 0:
-                localTarget = GameController.HighScore;
+                localTarget = RunnerController.score;
                 break;
             case 1:
-                localTarget = GameController.Diamonds;
+                localTarget = RunnerController.Diamonds;
                 break;
             case 2:
                 localTarget = RunnerController.score;
                 break;
         }
-        Debug.Log(localTarget);
         return localTarget;
     }
 
