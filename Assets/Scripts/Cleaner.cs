@@ -15,7 +15,6 @@ public class Cleaner : MonoBehaviour
     {
         if(other.gameObject.tag == "Location")
         {
-            Debug.Log("DESTROYING LOCATION");
             Destroy(other.gameObject);
             LocationController.CreateNewLocation();
         }

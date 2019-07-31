@@ -19,9 +19,6 @@ public class LocationController : MonoBehaviour
         location_Desert = GameObject.FindGameObjectWithTag("Desert");
         lastLocation = 0; // 0 - деревня, 1 - лес, 2 - пустыня
     }
-
-
-
     public static void CreateNewLocation()
     {
         int random = Random.Range(0, 3);
@@ -54,8 +51,6 @@ public class LocationController : MonoBehaviour
                 lastLocation = 2;
                 break;
         }
-        Debug.Log(location);
-        Debug.Log(position);
         Instantiate(location, position, Quaternion.identity);
     }
 }
