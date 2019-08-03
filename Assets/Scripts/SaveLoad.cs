@@ -12,8 +12,8 @@ public class SaveLoad : MonoBehaviour
         PlayerPrefs.SetInt("AvailableSkin4", GameController.skins[3]);
         PlayerPrefs.SetInt("AvailableSkin5", GameController.skins[4]);
         PlayerPrefs.SetInt("AvailableSkin6", GameController.skins[5]);
-        PlayerPrefs.SetInt("Diamonds", GameController.Diamonds);
-        PlayerPrefs.SetInt("HighScore", GameController.HighScore);
+        PlayerPrefs.SetInt("Diamonds", GameController.diamonds);
+        PlayerPrefs.SetInt("HighScore", GameController.highScore);
         PlayerPrefs.SetInt("CurrentSkin", GameController.currentSkin);
         PlayerPrefs.SetInt("Boosters1", GameController.Booster1);
         PlayerPrefs.SetInt("Boosters2", GameController.Booster2);
@@ -30,8 +30,8 @@ public class SaveLoad : MonoBehaviour
         GameController.skins[3] = PlayerPrefs.GetInt("AvailableSkin4", 0);
         GameController.skins[4] = PlayerPrefs.GetInt("AvailableSkin5", 0);
         GameController.skins[5] = PlayerPrefs.GetInt("AvailableSkin6", 0);
-        GameController.Diamonds = PlayerPrefs.GetInt("Diamonds", 8124);
-        GameController.HighScore = PlayerPrefs.GetInt("HighScore", 0);
+        GameController.diamonds = PlayerPrefs.GetInt("Diamonds", 8124);
+        GameController.highScore = PlayerPrefs.GetInt("HighScore", 0);
         GameController.currentSkin = PlayerPrefs.GetInt("CurrentSkin", 0);
         GameController.Booster1 = PlayerPrefs.GetInt("Boosters1", 0);
         GameController.Booster2 = PlayerPrefs.GetInt("Boosters2", 0);

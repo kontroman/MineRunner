@@ -18,7 +18,7 @@ public class Quests : MonoBehaviour
     {
         lastQuestCoins = PlayerPrefs.GetInt("LastCoinsQuest", 0);
         lastQuestScore = PlayerPrefs.GetInt("LastScoreQuest", 0);
-        HighScore = GameController.HighScore;
+        HighScore = GameController.highScore;
     }
     void Start()
     {
@@ -40,7 +40,7 @@ public class Quests : MonoBehaviour
                 localTarget = RunnerController.score;
                 break;
             case 1:
-                localTarget = RunnerController.Diamonds;
+                localTarget = RunnerController.diamonds;
                 break;
             case 2:
                 localTarget = RunnerController.score;

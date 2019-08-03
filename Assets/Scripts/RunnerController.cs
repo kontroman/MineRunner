@@ -39,7 +39,7 @@ public class RunnerController : MonoBehaviour
 
     private int PlusScore = 1;
 
-    public static int Diamonds;
+    public static int diamonds;
 
     public static void DrawHP(int hp)  //рисуем сердечки
     {
@@ -82,10 +82,11 @@ public class RunnerController : MonoBehaviour
         PlusScore = 1;
         Time.timeScale = 1;
         score = 0;
-        Diamonds = 0;
+        diamonds = 0;
 
         DiamondImage = GameObject.FindGameObjectWithTag("DiamondImage");
         PauseButtonInCanvas = GameObject.FindGameObjectWithTag("PauseButton");
+
         bos1 = GameObject.FindGameObjectWithTag("CBoost1");
         bos2 = GameObject.FindGameObjectWithTag("CBoost2");
         bos3 = GameObject.FindGameObjectWithTag("CBoost3");
@@ -147,7 +148,7 @@ public class RunnerController : MonoBehaviour
 
     private void Update()
     {
-        DiamondText.text = "" + Diamonds;
+        DiamondText.text = "" + diamonds;
 
         if(paused == false)
         {
@@ -273,14 +274,15 @@ public class RunnerController : MonoBehaviour
 
     void Death()
     {
-        GameController.Diamonds += Diamonds;
+        GameController.Diamonds += diamonds;
         PlusScore = 0;
         deathMenu.SetActive(true);
+
         ScoreText = GameObject.FindGameObjectWithTag("YourScore").GetComponent<Text>();
         BestScoreText = GameObject.FindGameObjectWithTag("HighScore").GetComponent<Text>();
-        if (GameController.HighScore <= score)
-            GameController.HighScore = score;  
-        
+
+        GameController.HighScore = score;
+
         BestScoreText.text = "" + GameController.HighScore;
         ScoreText.text = "" + score;
         DeactiveteBoosters();

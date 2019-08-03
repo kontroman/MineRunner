@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour {
     public static Text CountBooster3;
     public static Text CountBooster4;
 
-    public static int Diamonds = 5522;
+    public static int diamonds = 5522;
 
     public static int currentSkin;
 
@@ -27,7 +27,32 @@ public class GameController : MonoBehaviour {
     public static int Booster3;
     public static int Booster4;
 
-    public static int HighScore;
+    public static int highScore;
+
+    public static int Diamonds
+    {
+        get
+        {
+            return diamonds;
+        }
+        set
+        {
+            diamonds += value;
+        }
+    }
+
+    public static int HighScore
+    {
+        get
+        {
+            return highScore;
+        }
+        set
+        {
+            if (value > highScore)
+                highScore = value;
+        }
+    }
 
     private void Start()
     {

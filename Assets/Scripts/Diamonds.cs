@@ -18,9 +18,9 @@ public class Diamonds : MonoBehaviour
             popob = GameObject.FindGameObjectWithTag("pop");
             popob.gameObject.GetComponent<AudioSource>().Play();
             if (RunnerController.doubleDiamon)
-                RunnerController.Diamonds += 2;
+                RunnerController.diamonds += 2;
             else
-                RunnerController.Diamonds++;
+                RunnerController.diamonds++;
         }
         if (other.gameObject.tag == "Enemy")
             Destroy(gameObject);
