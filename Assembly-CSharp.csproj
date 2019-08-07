@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\EnemiesController.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\LocationController.cs" />
+    <Compile Include="Assets\Scripts\PickUpObjects.cs" />
     <Compile Include="Assets\Scripts\pidaras.cs" />
     <Compile Include="Assets\Scripts\PlayerController1.cs" />
     <Compile Include="Assets\Scripts\Quests.cs" />

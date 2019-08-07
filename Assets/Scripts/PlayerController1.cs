@@ -27,9 +27,7 @@ public class PlayerController1 : MonoBehaviour
     {
         ConstPlayer = GameObject.FindGameObjectWithTag("PlayerConst");
         if (GameController.currentSkin != 0)
-        {
             ConstPlayer.GetComponent<Renderer>().material = ShopController.Shop.mat[GameController.currentSkin];
-        }
         speed = 1;
     }
 
@@ -42,19 +40,16 @@ public class PlayerController1 : MonoBehaviour
     void Update()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        directionZ = player.transform.position.z;
-        RightPosition = new Vector3(1.4f, 0, directionZ);
-        LeftPosition = new Vector3(-1.2f, 0, directionZ);
-        CenterPosition = new Vector3(0.1f, 0, directionZ);
-        timer -= Time.deltaTime;
+        SetPositions();
+                timer -= Time.deltaTime;
         if (speed <= 1)
             speed = 1;
         if (timer <= 0)
         {
-            if (speed < 1.5)
+            if (speed < 1.6)
             {
                 speed += .1f;
-                timer = 15;
+                timer = 20;
             }
 
         }
@@ -63,6 +58,11 @@ public class PlayerController1 : MonoBehaviour
             _move = new Vector3(0, 0, 2);
         }
         player.transform.Translate(_move * speed * Time.deltaTime * 5, Space.World);
+        SetPositions();
+    }
+
+    void SetPositions()
+    {
         directionZ = player.transform.position.z;
         RightPosition = new Vector3(1.4f, 0, directionZ);
         LeftPosition = new Vector3(-1.2f, 0, directionZ);
