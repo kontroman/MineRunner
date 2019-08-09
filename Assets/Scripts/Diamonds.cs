@@ -11,7 +11,7 @@ public class Diamonds : MonoBehaviour
         gameObject.transform.Rotate(0f, 90f * Time.deltaTime, 0f);
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player"){
             Destroy(gameObject);

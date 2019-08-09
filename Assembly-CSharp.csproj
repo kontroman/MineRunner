@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\CloudController.cs" />
     <Compile Include="Assets\Scripts\DiamondController.cs" />
     <Compile Include="Assets\Scripts\Diamonds.cs" />
+    <Compile Include="Assets\Scripts\DiamondsCreator.cs" />
     <Compile Include="Assets\Scripts\EnemiesController.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\LocationController.cs" />
