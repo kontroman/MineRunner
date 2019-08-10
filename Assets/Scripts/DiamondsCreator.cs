@@ -18,14 +18,13 @@ public class DiamondsCreator : MonoBehaviour
         {
             time = 1;
             if (prefabPosition.z - PlayerController1.player.transform.position.z <= 100)
-                CreateLineDiamonds(SelectLine(prefabPosition));
+                SelectTypeOfDiamonds();
         }
     }
     private void Start()
     {
-        prefabPosition = new Vector3(0, .4f, 100f);
+        prefabPosition = new Vector3(0, .4f, 95f);
         diamondSprite = Resources.Load<Sprite>("Textures/diamond");
-        CreateThreeLinesDiamonds(prefabPosition);
     }
 
     public void CreateDiamond(Vector3 position)
@@ -51,7 +50,6 @@ public class DiamondsCreator : MonoBehaviour
             CreateDiamond(position);
             position.z += 2;
         }
-        prefabPosition.z += 30;
     }
 
     public void CreateThreeLinesDiamonds(Vector3 position)
@@ -69,13 +67,24 @@ public class DiamondsCreator : MonoBehaviour
 
     public Vector3 SelectLine(Vector3 position)
     {
-        int randomLine = Random.Range(0, 3);
-        switch (randomLine)
+        int rLine = Random.Range(0, 3);
+        switch (rLine)
         {
             case 0: return position;
             case 1: return new Vector3(-1.4f, position.y, position.z);
             case 2: return new Vector3(1.4f, position.y, position.z);
         }
         return position;
+    }
+
+    private void SelectTypeOfDiamonds()
+    {
+        int rPref = Random.Range(0, 10);
+        if (rPref < 4)
+            CreateLineDiamonds(SelectLine(prefabPosition));
+        else if (rPref < 9)
+            CreateTwoLinesDiamonds(prefabPosition);
+        else CreateThreeLinesDiamonds(prefabPosition);
+        prefabPosition.z += 30;
     }
 }
