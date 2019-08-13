@@ -27,7 +27,7 @@ public class DiamondsCreator : MonoBehaviour
         diamondSprite = Resources.Load<Sprite>("Textures/diamond");
     }
 
-    public void CreateDiamond(Vector3 position)
+    public void CreateDiamond(Vector3 position)  // создает 1 алмазик
     {
         GameObject diamond = new GameObject("diamond") as GameObject;
         diamond.transform.position = position;
@@ -35,7 +35,7 @@ public class DiamondsCreator : MonoBehaviour
         AddComponents(diamond);
     }
 
-    void AddComponents(GameObject target)
+    void AddComponents(GameObject target) // добавляет нужные штуки на алмазик
     {
         target.AddComponent<BoxCollider>().isTrigger = true;
         target.AddComponent<Rigidbody>().isKinematic = true;
@@ -43,7 +43,7 @@ public class DiamondsCreator : MonoBehaviour
         target.AddComponent<Diamonds>();
     }
 
-    public void CreateLineDiamonds(Vector3 position)
+    public void CreateLineDiamonds(Vector3 position) //создать одну линию из 10 алмазиков
     {
         for(int i = 0; i < 10; i++)
         {
@@ -52,20 +52,38 @@ public class DiamondsCreator : MonoBehaviour
         }
     }
 
-    public void CreateThreeLinesDiamonds(Vector3 position)
+    public void CreateThreeLinesDiamonds(Vector3 position) //создать 3 линии алмазиков
     {
         CreateLineDiamonds(new Vector3(1.4f, position.y, position.z));
         CreateLineDiamonds(new Vector3(0f, position.y, position.z));
         CreateLineDiamonds(new Vector3(-1.4f, position.y, position.z));
     }
 
-    public void CreateTwoLinesDiamonds(Vector3 position)
+    public void CreateTwoLinesDiamonds(Vector3 position) //создать 2 линии алмазиков
     {
-        CreateLineDiamonds(new Vector3(1.4f, position.y, position.z));
-        CreateLineDiamonds(new Vector3(-1.4f, position.y, position.z));
+        // сейчас херня, но я не знаю как сделать лучше что бы 
+        // выбирались 2 рандомные линии, тк в SelectLine при вызове 
+        // они могут наложиться друг на друга
+
+        int line = Random.Range(0, 3);
+        switch (line)
+        {
+            case 0:
+                CreateLineDiamonds(new Vector3(1.4f, position.y, position.z));
+                CreateLineDiamonds(new Vector3(-1.4f, position.y, position.z));
+                break;
+            case 1:
+                CreateLineDiamonds(new Vector3(0f, position.y, position.z));
+                CreateLineDiamonds(new Vector3(-1.4f, position.y, position.z));
+                break;
+            case 2:
+                CreateLineDiamonds(new Vector3(1.4f, position.y, position.z));
+                CreateLineDiamonds(new Vector3(0f, position.y, position.z));
+                break;
+        }
     }
 
-    public Vector3 SelectLine(Vector3 position)
+    public Vector3 SelectLine(Vector3 position) //выбрать одну линию из трех на дороге
     {
         int rLine = Random.Range(0, 3);
         switch (rLine)
@@ -77,7 +95,7 @@ public class DiamondsCreator : MonoBehaviour
         return position;
     }
 
-    private void SelectTypeOfDiamonds()
+    private void SelectTypeOfDiamonds() //выбираем сколько "линий" создавать
     {
         int rPref = Random.Range(0, 10);
         if (rPref < 4)
