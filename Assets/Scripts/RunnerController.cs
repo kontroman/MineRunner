@@ -291,6 +291,8 @@ public class RunnerController : MonoBehaviour
         scoreText.enabled = false;
         DiamondText.enabled = false;
 
+        CamShaker._camera = null; // что бы камера не тряслась после смерти, хз почему трясется при timeScale = 0
+
         Time.timeScale = 0;
         SaveLoad.Save();
         Quests.CompleteTask();

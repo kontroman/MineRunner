@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ButtonsController.cs" />
+    <Compile Include="Assets\Scripts\CamShaker.cs" />
     <Compile Include="Assets\Scripts\Cleaner.cs" />
     <Compile Include="Assets\Scripts\CloudController.cs" />
     <Compile Include="Assets\Scripts\DiamondController.cs" />
