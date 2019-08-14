@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\DiamondsCreator.cs" />
     <Compile Include="Assets\Scripts\EnemiesController.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\HiderBoosters.cs" />
     <Compile Include="Assets\Scripts\LocationController.cs" />
     <Compile Include="Assets\Scripts\PickUpObjects.cs" />
     <Compile Include="Assets\Scripts\pidaras.cs" />

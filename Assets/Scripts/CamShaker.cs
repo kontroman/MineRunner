@@ -5,7 +5,7 @@ using UnityEngine;
 public class CamShaker : MonoBehaviour
 {
     public static GameObject _camera;
-
+     
     private void Start()
     {
         _camera = gameObject;
