@@ -16,6 +16,10 @@ public class pidaras : MonoBehaviour
 
     void Update()
     {
+        if (swipeControls.Tap)
+        {
+            returnBoostersAlpha();
+        }
         if (swipeControls.SwipeLeft)
         {
             LEFT();
@@ -101,4 +105,11 @@ public class pidaras : MonoBehaviour
         left_center = false;
         right_center = false;
     }
+
+    void returnBoostersAlpha() 
+    {
+        HiderBoosters.timeLastUseBooster = 15;
+        HiderBoosters.boostersGameObject.SetActive(true);
+        StartCoroutine(HiderBoosters.ShowAllBoosters());
+    } 
 }

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Swipe : MonoBehaviour
 {
-    private bool swipeLeft, swipeRight, swipeUp, swipeDown;
+    private bool swipeLeft, swipeRight, swipeUp, swipeDown, tap;
     private bool isDraging = false;
     private Vector2 startTouch, swipeDelta;
 
     public Vector2 SwipeDelta { get { return swipeDelta; } }
+    public bool Tap { get { return tap; } }
     public bool SwipeLeft { get { return swipeLeft; } }
     public bool SwipeRight { get { return swipeRight; } }
     public bool SwipeUp { get { return swipeUp; } }
@@ -37,6 +38,7 @@ public class Swipe : MonoBehaviour
         swipeDelta = Vector2.zero;
         if(isDraging)
         {
+            tap = true;
             if (Input.touches.Length > 0)
                 swipeDelta = Input.touches[0].position - startTouch;
         }
@@ -76,5 +78,6 @@ public class Swipe : MonoBehaviour
     {
         startTouch = swipeDelta = Vector2.zero;
         isDraging = false;
+        tap = false;
     }
 }

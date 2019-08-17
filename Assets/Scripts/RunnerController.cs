@@ -175,7 +175,8 @@ public class RunnerController : MonoBehaviour
 
     public void UseBooster1()
     {
-        if(GameController.Booster1 > 0 && PlayerController1.armor < 6)
+        HiderBoosters.timeLastUseBooster = 15;
+        if (GameController.Booster1 > 0 && PlayerController1.armor < 6)
         {
             PlayerController1.armor += 2;
             DrawArmor(PlayerController1.armor);
@@ -188,6 +189,7 @@ public class RunnerController : MonoBehaviour
 
     public void UseBooster2()
     {
+        HiderBoosters.timeLastUseBooster = 15;
         if(GameController.Booster2 > 0)
         {
             doubleDiamon = true;
@@ -207,6 +209,7 @@ public class RunnerController : MonoBehaviour
 
     public void UseBooster3()
     {
+        HiderBoosters.timeLastUseBooster = 15;
         if (GameController.Booster3 > 0)
         {
             doubleScore = true;
@@ -226,7 +229,8 @@ public class RunnerController : MonoBehaviour
 
     public void UseBooster4()
     {
-        if(GameController.Booster4 > 0 && PlayerController1.speed > 1)
+        HiderBoosters.timeLastUseBooster = 15;
+        if (GameController.Booster4 > 0 && PlayerController1.speed > 1)
         {
             GameController.Booster4 -= 1;
             Drink();

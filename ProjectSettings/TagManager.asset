@@ -37,6 +37,7 @@ TagManager:
   - Forest
   - Village
   - Desert
+  - BoosterMainObject
   layers:
   - Default
   - TransparentFX

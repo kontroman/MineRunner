@@ -1,38 +1,77 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class HiderBoosters : MonoBehaviour
 {
+    public float speed;
+    private static Component[] imageComponents;
+    private static Component[] textComponents;
+    public static GameObject boostersGameObject;
+
+    public static float timeLastUseBooster = 15;
+
+    private void Update()
+    {
+        timeLastUseBooster -= Time.deltaTime;
+        if (timeLastUseBooster <= 0)
+        {
+            StartCoroutine(HideAllBoosters());
+            timeLastUseBooster = 15;
+        }
+    }
 
     private void Start()
     {
-        StartCoroutine(HideAllBoosters(transform));
+        boostersGameObject = gameObject;
+        imageComponents = gameObject.GetComponentsInChildren<Image>();
+        textComponents = gameObject.GetComponentsInChildren<Text>();
     }
 
-    IEnumerator HideAllBoosters(Transform _object)
+    IEnumerator HideAllBoosters()
     {
-        foreach (Transform child in _object.transform)
+        StartCoroutine(DeactivateBoosters());
+        float time = 0;
+        while ( time < 1)
         {
-            Debug.Log(child.GetType());
-                Color _color = child.GetComponent<Image>().color;
+            time += speed;
+            foreach (Image image in imageComponents)
+            {
+                Color _color = image.color;
                 _color = new Color(_color.r, _color.g, _color.b, 0);
-                StartCoroutine(HideAllBoosters(child));
-                //Text _text = child.GetComponent<Text>();
-                //_text.color = new Color(_text.color.r, _text.color.g, _text.color.b, 0);
+                image.color = Color.Lerp(image.color, _color, time);
+            }
+            foreach (Text text in textComponents)
+            {
+                Color _color = text.color;
+                _color = new Color(_color.r, _color.g, _color.b, 0);
+                text.color = Color.Lerp(text.color, _color, time);
+            }
+            yield return null;
+        }
+    }
+
+    public static IEnumerator ShowAllBoosters()
+    {
+        foreach (Image image in imageComponents)
+        {
+            Color _color = image.color;
+            _color = new Color(_color.r, _color.g, _color.b, 1);
+            image.color = _color;
+        }
+        foreach (Text text in textComponents)
+        {
+            Color _color = text.color;
+            _color = new Color(_color.r, _color.g, _color.b, 1);
+            text.color = _color;
         }
         yield return null;
     }
 
-    IEnumerator ShowAllBoosters(Transform _object)
+    IEnumerator DeactivateBoosters()
     {
-        foreach(Transform child in _object.transform)
-        {
-            Color _color = child.GetComponent<Image>().color;
-            _color = new Color(_color.r, _color.g, _color.b, 255);
-            StartCoroutine(ShowAllBoosters(child));
-        }
-        yield return null;
+        yield return new WaitForSeconds(2f);
+        boostersGameObject.SetActive(false);
     }
 }
