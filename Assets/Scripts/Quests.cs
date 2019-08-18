@@ -25,6 +25,7 @@ public class Quests : MonoBehaviour
         Initializing();
         quest = SelectQuest();
         taskText.text = quest.Discription;
+        Destroy(taskText, 8f);
     }
 
     public static bool CompleteTask()
@@ -55,11 +56,11 @@ public class Quests : MonoBehaviour
         switch (random)
         {
             case 0:
-                return new Quest(HighScore, "Set new record to reward");
+                return new Quest(HighScore, "Установи новый рекорд");
             case 1:
-                return new Quest(lastQuestCoins + 250, "Collect " + (lastQuestCoins + 250) + " coins to reward");
+                return new Quest(lastQuestCoins + 250, "Собери" + (lastQuestCoins + 250) + " алмазов");
             case 2:
-                return new Quest(lastQuestScore + 5000, "Get " + (lastQuestScore + 5000) + " score to reward");
+                return new Quest(lastQuestScore + 10000, "Получи " + (lastQuestScore + 10000) + " очков");
             default:
                 return null;
         }
