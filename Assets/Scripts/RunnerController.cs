@@ -278,7 +278,7 @@ public class RunnerController : MonoBehaviour
 
     void Death()
     {
-        GameController.Diamonds += diamonds;
+        GameController.diamonds += diamonds;
         PlusScore = 0;
         deathMenu.SetActive(true);
 
@@ -300,6 +300,7 @@ public class RunnerController : MonoBehaviour
         Time.timeScale = 0;
         SaveLoad.Save();
         Quests.CompleteTask();
+        Quests.UpdateQuestsTarget();
     }
 
     public void Restart()

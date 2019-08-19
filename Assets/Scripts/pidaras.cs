@@ -16,9 +16,9 @@ public class pidaras : MonoBehaviour
 
     void Update()
     {
-        if (swipeControls.Tap)
+        if (swipeControls.Tap) //если тап
         {
-            returnBoostersAlpha();
+            returnBoostersAlpha(); //показываем бустеры на экране
         }
         if (swipeControls.SwipeLeft)
         {

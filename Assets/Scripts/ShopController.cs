@@ -36,7 +36,7 @@ public class ShopController : MonoBehaviour
     public void Start()
     {
         SaveLoad.Load();
-        YourDiamond.text = "" + GameController.Diamonds;
+        YourDiamond.text = "" + GameController.diamonds;
         //BuyText = GameObject.FindGameObjectWithTag("BuyText").GetComponent<Text>();
         //PriceText = GameObject.FindGameObjectWithTag("Price").GetComponent<Text>();
         Player.SetActive(true);
@@ -66,7 +66,7 @@ public class ShopController : MonoBehaviour
 
     void CheckTextButton()
     {
-        YourDiamond.text = "" + GameController.Diamonds;
+        YourDiamond.text = "" + GameController.diamonds;
         if (GameController.skins[WhichSkinNow] == 0) 
         {
             BuyText.text = "Купить скин";
@@ -96,7 +96,7 @@ public class ShopController : MonoBehaviour
     }
     public void CheckForBuyAvailable()
     {
-        if(GameController.Diamonds > prices[WhichSkinNow] || GameController.skins[WhichSkinNow] == 1)
+        if(GameController.diamonds > prices[WhichSkinNow] || GameController.skins[WhichSkinNow] == 1)
         {
             BuySkin();
         }
@@ -107,7 +107,7 @@ public class ShopController : MonoBehaviour
         gameObject.GetComponent<AudioSource>().Play();
         if (GameController.skins[WhichSkinNow] == 0)
         {
-            GameController.Diamonds -= prices[WhichSkinNow];
+            GameController.diamonds -= prices[WhichSkinNow];
             GameController.skins[WhichSkinNow] = 1;
             GameObject.FindGameObjectWithTag("Finish").GetComponent<AudioSource>().Play();
         }

@@ -29,18 +29,6 @@ public class GameController : MonoBehaviour {
 
     public static int highScore;
 
-    public static int Diamonds
-    {
-        get
-        {
-            return diamonds;
-        }
-        set
-        {
-            diamonds += value;
-        }
-    }
-
     public static int HighScore
     {
         get
@@ -80,6 +68,6 @@ public class GameController : MonoBehaviour {
             CountBooster4.text = "" + Booster4;
         else
             CountBooster4.text = "";
-        diamondsText.text = "" + Diamonds;
+        diamondsText.text = "" + diamonds;
     }
 }

@@ -74,9 +74,9 @@ public class ButtonsController : MonoBehaviour {
     }
     public void BuyBooster1()
     {
-        if(GameController.priceBooster1 < GameController.Diamonds)
+        if(GameController.priceBooster1 < GameController.diamonds)
         {
-            GameController.Diamonds -= GameController.priceBooster1;
+            GameController.diamonds -= GameController.priceBooster1;
             GameController.Booster1++;
         }
         GameController.UpdateTexts();
@@ -84,9 +84,9 @@ public class ButtonsController : MonoBehaviour {
     }
     public void BuyBooster2()
     {
-        if (GameController.priceBooster2 < GameController.Diamonds)
+        if (GameController.priceBooster2 < GameController.diamonds)
         {
-            GameController.Diamonds -= GameController.priceBooster2;
+            GameController.diamonds -= GameController.priceBooster2;
             GameController.Booster2++;
         }
         GameController.UpdateTexts();
@@ -94,9 +94,9 @@ public class ButtonsController : MonoBehaviour {
     }
     public void BuyBooster3()
     {
-        if (GameController.priceBooster3 < GameController.Diamonds)
+        if (GameController.priceBooster3 < GameController.diamonds)
         {
-            GameController.Diamonds -= GameController.priceBooster3;
+            GameController.diamonds -= GameController.priceBooster3;
             GameController.Booster3++;
         }
         GameController.UpdateTexts();
@@ -104,9 +104,9 @@ public class ButtonsController : MonoBehaviour {
     }
     public void BuyBooster4()
     {
-        if (GameController.priceBooster4 < GameController.Diamonds)
+        if (GameController.priceBooster4 < GameController.diamonds)
         {
-            GameController.Diamonds -= GameController.priceBooster4;
+            GameController.diamonds -= GameController.priceBooster4;
             GameController.Booster4++;
         }
         GameController.UpdateTexts();

@@ -28,6 +28,22 @@ public class Quests : MonoBehaviour
         Destroy(taskText, 8f);
     }
 
+    public static void UpdateQuestsTarget()
+    {
+        if (CompleteTask())
+        {
+            switch (localTarget)
+            {
+                case 1:
+                    PlayerPrefs.SetInt("LastCoinsQuest", lastQuestCoins + 250);
+                    break;
+                case 2:
+                    PlayerPrefs.SetInt("LastScoreQuest", lastQuestScore + 10000);
+                    break;
+            }
+        }
+    }
+
     public static bool CompleteTask()
     {
         return quest.CheckForComplete(GetCurrentTarget());
@@ -58,7 +74,7 @@ public class Quests : MonoBehaviour
             case 0:
                 return new Quest(HighScore, "Установи новый рекорд");
             case 1:
-                return new Quest(lastQuestCoins + 250, "Собери" + (lastQuestCoins + 250) + " алмазов");
+                return new Quest(lastQuestCoins + 250, "Собери " + (lastQuestCoins + 250) + " алмазов");
             case 2:
                 return new Quest(lastQuestScore + 10000, "Получи " + (lastQuestScore + 10000) + " очков");
             default:
