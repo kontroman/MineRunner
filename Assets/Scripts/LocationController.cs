@@ -10,10 +10,10 @@ public class LocationController : MonoBehaviour
     private static GameObject location;
     private static int lastLocation;
 
-    public static Vector3 position = new Vector3(0, 0, 262.4f);
-
+    public static Vector3 position;
     private void Start()
     {
+        position = new Vector3(0, 0, 262.4f);
         location_Forest = GameObject.FindGameObjectWithTag("Forest");
         location_Village = GameObject.FindGameObjectWithTag("Village");
         location_Desert = GameObject.FindGameObjectWithTag("Desert");
