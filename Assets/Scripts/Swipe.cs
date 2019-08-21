@@ -29,6 +29,7 @@ public class Swipe : MonoBehaviour
             }
             else if(Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
             {
+                tap = true;
                 isDraging = false;
                 Reset();
             }
@@ -38,7 +39,6 @@ public class Swipe : MonoBehaviour
         swipeDelta = Vector2.zero;
         if(isDraging)
         {
-            tap = true;
             if (Input.touches.Length > 0)
                 swipeDelta = Input.touches[0].position - startTouch;
         }
