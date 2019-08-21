@@ -79,6 +79,10 @@ public class ShopController : MonoBehaviour
         {
             BuyText.text = "Выбрать скин";
         }
+        if(GameController.skins[WhichSkinNow] == 6)
+        {
+            BuyText.text = "Награда из сундука";
+        }
         UpdatePrice(WhichSkinNow);
     }
 
@@ -107,6 +111,10 @@ public class ShopController : MonoBehaviour
         gameObject.GetComponent<AudioSource>().Play();
         if (GameController.skins[WhichSkinNow] == 0)
         {
+            if (GameController.skins[WhichSkinNow] == 6)
+            {
+                return;
+            }
             GameController.diamonds -= prices[WhichSkinNow];
             GameController.skins[WhichSkinNow] = 1;
             GameObject.FindGameObjectWithTag("Finish").GetComponent<AudioSource>().Play();

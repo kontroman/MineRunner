@@ -21,7 +21,7 @@ public class EnemiesController : MonoBehaviour
 
     private void Start()
     {
-        directionZ = 42; time = 0.5f;
+        directionZ = 60; time = 0.5f;
     }
 
     private void Update()
@@ -33,7 +33,7 @@ public class EnemiesController : MonoBehaviour
             if(directionZ - PlayerController1.player.transform.position.z <= 100)
             {
                 CreateEnemy();
-                directionZ += 12;
+                directionZ += 15;
             }
         }
     }
