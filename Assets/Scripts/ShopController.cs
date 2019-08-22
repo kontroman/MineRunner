@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ShopController : MonoBehaviour
 {
-
+    private AudioSource auS;
     public Swipe swipeControls;
     public static ShopController Shop;
     public GameObject Player;
@@ -35,10 +35,9 @@ public class ShopController : MonoBehaviour
 
     public void Start()
     {
+        auS = gameObject.GetComponent<AudioSource>();
         SaveLoad.Load();
         YourDiamond.text = "" + GameController.diamonds;
-        //BuyText = GameObject.FindGameObjectWithTag("BuyText").GetComponent<Text>();
-        //PriceText = GameObject.FindGameObjectWithTag("Price").GetComponent<Text>();
         Player.SetActive(true);
         WhichSkinNow = GameController.currentSkin;
         Player.GetComponent<Renderer>().material = mat[WhichSkinNow];
@@ -67,37 +66,49 @@ public class ShopController : MonoBehaviour
     void CheckTextButton()
     {
         YourDiamond.text = "" + GameController.diamonds;
-        if (GameController.skins[WhichSkinNow] == 0) 
-        {
-            BuyText.text = "Купить скин";
-        }
+        if (GameController.skins[WhichSkinNow] == 0)
+            setBuyText();
         else if (WhichSkinNow == GameController.currentSkin)
-        {
-            BuyText.text = "Текущий скин";
-        }
+            setCurrentText();
         else
+            setSelectText();
+        if(WhichSkinNow == 5 && GameController.skins[5] == 0)
         {
-            BuyText.text = "Выбрать скин";
-        }
-        if(GameController.skins[WhichSkinNow] == 6)
-        {
-            BuyText.text = "Награда из сундука";
+            BuyText.text = "Недоступно";
         }
         UpdatePrice(WhichSkinNow);
     }
 
+    void setCurrentText()
+    {
+        BuyText.text = "Текущий скин";
+    }
+
+    void setBuyText()
+    {
+        BuyText.text = "Купить скин";
+    }
+    void setSelectText()
+    {
+        BuyText.text = "Выбрать скин";
+    }
+
+
     void UpdatePrice(int skin)
     {
         if (GameController.skins[skin] == 0)
-        {
             PriceText.text = "" + prices[skin];
-        }
         else
-        {
             PriceText.text = "";
+        if(skin == 5)
+        {   
+            if(GameController.skins[5] == 0)
+                PriceText.text = "Награда из сундука";
+            else
+                PriceText.text = "";
         }
-            
     }
+
     public void CheckForBuyAvailable()
     {
         if(GameController.diamonds > prices[WhichSkinNow] || GameController.skins[WhichSkinNow] == 1)
@@ -108,22 +119,42 @@ public class ShopController : MonoBehaviour
 
     public void BuySkin()
     {
-        gameObject.GetComponent<AudioSource>().Play();
-        if (GameController.skins[WhichSkinNow] == 0)
+        PlaySound();
+        if (GameController.skins[WhichSkinNow] == 0 && WhichSkinNow != 5)
         {
-            if (GameController.skins[WhichSkinNow] == 6)
-            {
-                return;
-            }
-            GameController.diamonds -= prices[WhichSkinNow];
+            IncreaseDiamonds(prices[WhichSkinNow]);
             GameController.skins[WhichSkinNow] = 1;
             GameObject.FindGameObjectWithTag("Finish").GetComponent<AudioSource>().Play();
         }
         else
         {
-            GameController.currentSkin = WhichSkinNow;
+            SetCurrentSkin(WhichSkinNow);
         }
+        if (WhichSkinNow == 5 && GameController.skins[WhichSkinNow] == 1)
+        {
+            SetCurrentSkin(WhichSkinNow);
+        }
+        else
+        {
+            return;
+        }
+
         UpdatePrice(WhichSkinNow);
         CheckTextButton();
+    }
+
+    void SetCurrentSkin(int _skin)
+    {
+        GameController.currentSkin = _skin;
+    }
+
+    void IncreaseDiamonds(int _diamonds)
+    {
+        GameController.diamonds -= _diamonds;
+    }
+
+    void PlaySound()
+    {
+        auS.Play();
     }
 }

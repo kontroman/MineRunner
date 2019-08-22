@@ -17,10 +17,10 @@ public class GameController : MonoBehaviour {
 
     public static int[] skins = new int[6];
 
-    public static int priceBooster1 = 350;
-    public static int priceBooster2 = 75;
-    public static int priceBooster3 = 100;
-    public static int priceBooster4 = 500;
+    public static int priceBooster1 = 400;
+    public static int priceBooster2 = 500;
+    public static int priceBooster3 = 750;
+    public static int priceBooster4 = 1500;
 
     public static int Booster1;
     public static int Booster2;
