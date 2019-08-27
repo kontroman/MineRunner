@@ -20696,6 +20696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b905204495b1ce4bad1a78083c98730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 180128, guid: 6586ff0f14125534cae2f5d8f04b7871, type: 3}
   camShaker: {fileID: 1605952007}
   rb: {fileID: 1652650001}
 --- !u!82 &1652650003

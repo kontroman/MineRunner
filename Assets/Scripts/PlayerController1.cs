@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController1 : MonoBehaviour
 {
+    public GameObject particles;
     public CamShaker camShaker;
     private static float directionZ;
     public static Vector3 CenterPosition = new Vector3(0.1f, 0, directionZ);
@@ -74,8 +75,11 @@ public class PlayerController1 : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
+            GameObject part = Instantiate(particles, other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position) + new Vector3(0, 0, 4), Quaternion.identity);
+            Destroy(part, 2);
             GetDamage(2);
             StartCoroutine(camShaker.ShakeCam(0.15f, 0.2f));
+            Destroy(other.gameObject);
         }
         if(other.gameObject.tag == "TNT")
         {
