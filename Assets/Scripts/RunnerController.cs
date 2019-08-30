@@ -83,6 +83,7 @@ public class RunnerController : MonoBehaviour
         Time.timeScale = 1;
         score = 0;
         diamonds = 0;
+        doubleDiamon = false;
 
         DiamondImage = GameObject.FindGameObjectWithTag("DiamondImage");
         PauseButtonInCanvas = GameObject.FindGameObjectWithTag("PauseButton");

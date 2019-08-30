@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController1 : MonoBehaviour
 {
-    public GameObject particles;
     public CamShaker camShaker;
     private static float directionZ;
     public static Vector3 CenterPosition = new Vector3(0.1f, 0, directionZ);
@@ -25,6 +24,7 @@ public class PlayerController1 : MonoBehaviour
 
     public  Rigidbody rb;
 
+    private AudioSource _as;
     private void Awake()
     {
         ConstPlayer = GameObject.FindGameObjectWithTag("PlayerConst");
@@ -35,6 +35,7 @@ public class PlayerController1 : MonoBehaviour
 
     private void Start()
     {
+        _as = gameObject.GetComponent<AudioSource>();
         hp = 6;
         armor = 0;
     }
@@ -75,11 +76,8 @@ public class PlayerController1 : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            GameObject part = Instantiate(particles, other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position) + new Vector3(0, 0, 4), Quaternion.identity);
-            Destroy(part, 2);
             GetDamage(2);
             StartCoroutine(camShaker.ShakeCam(0.15f, 0.2f));
-            Destroy(other.gameObject);
         }
         if(other.gameObject.tag == "TNT")
         {
@@ -93,6 +91,7 @@ public class PlayerController1 : MonoBehaviour
 
     void GetDamage(int damage)
     {
+        PlayHitAudio();
         if (armor > 0)
             armor -= damage;
         else
@@ -100,7 +99,11 @@ public class PlayerController1 : MonoBehaviour
 
         RunnerController.DrawHP(hp);
         RunnerController.DrawArmor(armor);
-        gameObject.GetComponent<AudioSource>().Play();
+    }
+
+    void PlayHitAudio()
+    {
+        _as.Play();
     }
 
 }
