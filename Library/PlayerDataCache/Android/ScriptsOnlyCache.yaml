@@ -20,16 +20,13 @@ ScriptsOnlyBuild:
     - Swipe
     - TreeCameraDowner
     - pidaras
-    Unity.TextMeshPro.dll:
-    - TMPro.TMP_FontAsset
-    - TMPro.TMP_Settings
-    - TMPro.TMP_SpriteAsset
-    - TMPro.TMP_StyleSheet
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -42,6 +39,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
     com.unity.multiplayer-hlapi.Runtime.dll:
+    - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
   sceneClasses:
     Assets/Scenes/MenuScene.unity:
@@ -62,8 +60,6 @@ ScriptsOnlyBuild:
     - Class: 43
       Script: {instanceID: 0}
     - Class: 48
-      Script: {instanceID: 0}
-    - Class: 49
       Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
@@ -91,58 +87,48 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
-    - Class: 109
-      Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9336}
+      Script: {instanceID: 9338}
     - Class: 114
-      Script: {instanceID: 9340}
-    - Class: 114
-      Script: {instanceID: 9386}
+      Script: {instanceID: 9342}
     - Class: 114
       Script: {instanceID: 9388}
     - Class: 114
-      Script: {instanceID: 9424}
+      Script: {instanceID: 9390}
     - Class: 114
-      Script: {instanceID: 9440}
+      Script: {instanceID: 9426}
     - Class: 114
-      Script: {instanceID: 9464}
+      Script: {instanceID: 9442}
     - Class: 114
       Script: {instanceID: 9466}
     - Class: 114
-      Script: {instanceID: 9472}
+      Script: {instanceID: 9468}
     - Class: 114
-      Script: {instanceID: 9478}
+      Script: {instanceID: 9474}
     - Class: 114
-      Script: {instanceID: 9486}
+      Script: {instanceID: 9480}
     - Class: 114
-      Script: {instanceID: 9522}
+      Script: {instanceID: 9488}
     - Class: 114
       Script: {instanceID: 9524}
     - Class: 114
-      Script: {instanceID: 9734}
+      Script: {instanceID: 9526}
     - Class: 114
-      Script: {instanceID: 9890}
+      Script: {instanceID: 9738}
     - Class: 114
-      Script: {instanceID: 9904}
+      Script: {instanceID: 9894}
     - Class: 114
-      Script: {instanceID: 10028}
+      Script: {instanceID: 10032}
     - Class: 114
-      Script: {instanceID: 10038}
+      Script: {instanceID: 10042}
     - Class: 114
-      Script: {instanceID: 10128}
+      Script: {instanceID: 10132}
     - Class: 114
-      Script: {instanceID: 10284}
+      Script: {instanceID: 10362}
     - Class: 114
-      Script: {instanceID: 10298}
+      Script: {instanceID: 10380}
     - Class: 114
-      Script: {instanceID: 10358}
-    - Class: 114
-      Script: {instanceID: 10376}
-    - Class: 114
-      Script: {instanceID: 10556}
-    - Class: 114
-      Script: {instanceID: 10670}
+      Script: {instanceID: 10560}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -200,8 +186,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
     - Class: 91
@@ -213,49 +197,49 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9350}
-    - Class: 114
-      Script: {instanceID: 9464}
+      Script: {instanceID: 9352}
     - Class: 114
       Script: {instanceID: 9466}
     - Class: 114
-      Script: {instanceID: 9472}
+      Script: {instanceID: 9468}
     - Class: 114
-      Script: {instanceID: 9478}
+      Script: {instanceID: 9474}
     - Class: 114
-      Script: {instanceID: 9486}
+      Script: {instanceID: 9480}
     - Class: 114
-      Script: {instanceID: 9522}
+      Script: {instanceID: 9488}
     - Class: 114
       Script: {instanceID: 9524}
     - Class: 114
-      Script: {instanceID: 9722}
+      Script: {instanceID: 9526}
     - Class: 114
-      Script: {instanceID: 9816}
+      Script: {instanceID: 9726}
     - Class: 114
-      Script: {instanceID: 9834}
+      Script: {instanceID: 9820}
     - Class: 114
-      Script: {instanceID: 9850}
+      Script: {instanceID: 9838}
     - Class: 114
-      Script: {instanceID: 9876}
+      Script: {instanceID: 9854}
     - Class: 114
-      Script: {instanceID: 9892}
+      Script: {instanceID: 9880}
     - Class: 114
-      Script: {instanceID: 9928}
+      Script: {instanceID: 9896}
     - Class: 114
-      Script: {instanceID: 10038}
+      Script: {instanceID: 9932}
     - Class: 114
-      Script: {instanceID: 10148}
+      Script: {instanceID: 10042}
     - Class: 114
-      Script: {instanceID: 10550}
+      Script: {instanceID: 10152}
     - Class: 114
-      Script: {instanceID: 10556}
+      Script: {instanceID: 10554}
     - Class: 114
-      Script: {instanceID: 10660}
+      Script: {instanceID: 10560}
     - Class: 114
-      Script: {instanceID: 10734}
+      Script: {instanceID: 10664}
     - Class: 114
-      Script: {instanceID: 10820}
+      Script: {instanceID: 10738}
+    - Class: 114
+      Script: {instanceID: 10824}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -273,8 +257,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    - Class: 258
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -751,6 +733,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 0010e1bf4713cb9af3f0db5d22aea7ae
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: OpenChest
   - hash:
       serializedVersion: 2
       Hash: afc5b93a7b192de2dcb3832fe35a5c7e

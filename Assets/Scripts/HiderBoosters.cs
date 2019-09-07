@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
-
 public class HiderBoosters : MonoBehaviour
 {
     public float speed;

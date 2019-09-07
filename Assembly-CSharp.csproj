@@ -10,7 +10,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{CA3F7454-8D61-C931-8DF4-D101DE2A46CF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -73,8 +74,8 @@
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\HiderBoosters.cs" />
     <Compile Include="Assets\Scripts\LocationController.cs" />
+    <Compile Include="Assets\Scripts\ChestReward.cs" />
     <Compile Include="Assets\Scripts\OpenChest.cs" />
-    <Compile Include="Assets\Scripts\PickUpObjects.cs" />
     <Compile Include="Assets\Scripts\pidaras.cs" />
     <Compile Include="Assets\Scripts\PlayerController1.cs" />
     <Compile Include="Assets\Scripts\Quests.cs" />
@@ -85,7 +86,6 @@
     <Compile Include="Assets\Scripts\SteeveRotation.cs" />
     <Compile Include="Assets\Scripts\Swipe.cs" />
     <Compile Include="Assets\Scripts\SwipeController.cs" />
-    <Compile Include="Assets\Scripts\TreeCameraDowner.cs" />
     <None Include="Assets\ChestShader.shader" />
     <None Include="Assets\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
     <Reference Include="Unity.Timeline.Editor">

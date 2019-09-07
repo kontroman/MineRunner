@@ -58,17 +58,18 @@ public class RunnerController : MonoBehaviour
 
     public static void DrawArmor(int armor) //рисуем броню
     {
+        Transform _pTransform = GameObject.FindGameObjectWithTag("Canvas").transform;
         if(PlayerController1.armor >= 0)
         {
             for (int i = 0; i < armor; i++)
             {
                 ArmorPref = Instantiate(prefabArmor, coordiantesArmor[i], Quaternion.identity);
-                ArmorPref.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+                ArmorPref.transform.SetParent(_pTransform, false);
             }
             for (int i = armor; i < 6; i++)
             {
                 ArmorPref = Instantiate(prefabArmor, coordiantesArmor[i], Quaternion.identity);
-                ArmorPref.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+                ArmorPref.transform.SetParent(_pTransform, false);
                 ArmorPref.GetComponent<Image>().color = new Color32(63, 63, 63, 255);
             }
         }

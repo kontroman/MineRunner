@@ -21,7 +21,7 @@ public class CamShaker : MonoBehaviour
         {
             float x = Random.Range(-1f, 1f) * magnitude * 2;
             //float z = Random.Range(-.1f, .1f) * magnitude;
-
+            if(_camera != null)
             _camera.transform.localPosition = new Vector3(x, originalPos.y, originalPos.z);
 
             elapsed += Time.deltaTime;

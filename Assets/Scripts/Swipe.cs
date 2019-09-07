@@ -72,6 +72,11 @@ public class Swipe : MonoBehaviour
             }
             Reset();
         }
+        else
+        {
+            tap = true;
+            Reset();
+        }
     }
 
     private void Reset()
