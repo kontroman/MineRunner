@@ -277,13 +277,24 @@ public class RunnerController : MonoBehaviour
         paused = false;
         SceneManager.LoadScene(0);
     }
+    
+    void CheckForAds()
+    {
+        PlayerPrefs.SetInt("Deathes", PlayerPrefs.GetInt("Deathes", 0) + 1);
+        if (PlayerPrefs.GetInt("Deathes", 0) == 4)
+        {
+            PlayerPrefs.SetInt("Deathes", 0);
+            ShowDefaultAds();
+        }
+    }
 
     void Death()
     {
+        CheckForAds();
         GameController.diamonds += diamonds;
         PlusScore = 0;
         deathMenu.SetActive(true);
-
+        DisableUI();
         ScoreText = GameObject.FindGameObjectWithTag("YourScore").GetComponent<Text>();
         BestScoreText = GameObject.FindGameObjectWithTag("HighScore").GetComponent<Text>();
 
@@ -292,10 +303,7 @@ public class RunnerController : MonoBehaviour
         BestScoreText.text = "" + GameController.HighScore;
         ScoreText.text = "" + score;
         DeactiveteBoosters();
-        PauseButtonInCanvas.SetActive(false);
-        DiamondImage.SetActive(false);
-        scoreText.enabled = false;
-        DiamondText.enabled = false;
+
 
         CamShaker._camera = null; // что бы камера не тряслась после смерти, хз почему трясется при timeScale = 0
 
@@ -303,6 +311,14 @@ public class RunnerController : MonoBehaviour
         SaveLoad.Save();
         Quests.CompleteTask();
         Quests.UpdateQuestsTarget();
+    }
+
+    void DisableUI()
+    {
+        PauseButtonInCanvas.SetActive(false);
+        DiamondImage.SetActive(false);
+        scoreText.enabled = false;
+        DiamondText.enabled = false;
     }
 
     public void Restart()
@@ -326,5 +342,32 @@ public class RunnerController : MonoBehaviour
         bos2.SetActive(true);
         bos3.SetActive(true);
         bos4.SetActive(true);
+    }
+
+    [System.Obsolete]
+    public void DoubleDiamondsButton()
+    {
+        try
+        {
+            UnityAds _ads = new UnityAds();
+            _ads.ShowRewardedAds();
+        }
+        catch
+        {
+            Debug.Log("Ads reward failed");
+        }
+    }
+
+    public void ShowDefaultAds()
+    {
+        try
+        {
+            UnityAds _ads = new UnityAds();
+            _ads.ShowDefaultAds();
+        }
+        catch
+        {
+            Debug.Log("Ads failed");
+        }
     }
 }
