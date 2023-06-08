@@ -2,6 +2,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class RunnerController : MonoBehaviour
 {
@@ -290,7 +291,9 @@ public class RunnerController : MonoBehaviour
 
     void Death()
     {
-        CheckForAds();
+        //CheckForAds();
+        YandexGame.Instance._FullscreenShow();
+
         GameController.diamonds += diamonds;
         PlusScore = 0;
         deathMenu.SetActive(true);
@@ -347,27 +350,11 @@ public class RunnerController : MonoBehaviour
     [System.Obsolete]
     public void DoubleDiamondsButton()
     {
-        try
-        {
-            UnityAds _ads = new UnityAds();
-            _ads.ShowRewardedAds();
-        }
-        catch
-        {
-            Debug.Log("Ads reward failed");
-        }
+
     }
 
     public void ShowDefaultAds()
     {
-        try
-        {
-            UnityAds _ads = new UnityAds();
-            _ads.ShowDefaultAds();
-        }
-        catch
-        {
-            Debug.Log("Ads failed");
-        }
+
     }
 }

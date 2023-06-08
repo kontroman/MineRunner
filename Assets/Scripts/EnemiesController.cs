@@ -77,66 +77,6 @@ public class EnemiesController : MonoBehaviour
 
     Vector3 SelectDirection()
     {
-        Vector3 direction = new Vector3(0, 0, directionZ);
-        int SecondWayRandom = 0;
-        switch (random)
-        {
-            case 0:
-                SecondWayRandom = Random.Range(0, 3);
-                switch (SecondWayRandom)
-                {
-                    case 0:
-                        direction = new Vector3(-1.4f, -0.15f, directionZ);
-                        break;
-                    case 1:
-                        direction = new Vector3(0, -0.15f, directionZ);
-                        break;
-                    case 2:
-                        direction = new Vector3(1.5f, -0.15f, directionZ);
-                        break;
-                }
-                break;
-            case 1:
-                direction = new Vector3(2.5f, 0.5f, directionZ);
-                break;
-            case 2:
-                direction = new Vector3(0f,.5f, directionZ);
-                break;
-            case 3:
-                SecondWayRandom = Random.Range(0, 2);
-                switch (SecondWayRandom)
-                {
-                    case 0:
-                        direction = new Vector3(0, 0.5f, directionZ);
-                        break;
-                    case 1:
-                        direction = new Vector3(2.6f, 0.5f, directionZ);
-                        break;
-                }
-                break;
-            case 4:
-                direction = new Vector3(0, 0.5f, directionZ);
-                break;
-            case 5:
-                SecondWayRandom = Random.Range(0, 3);
-                switch (SecondWayRandom)
-                {
-                    case 0:
-                        direction = new Vector3(0, 1.25f, directionZ);
-                        break;
-                    case 1:
-                        direction = new Vector3(-1.4f, 1.25f, directionZ);
-                        break;
-                    case 2:
-                        direction = new Vector3(1.5f, 1.25f, directionZ);
-                        break;
-                }
-                break;
-            case 6:
-                direction = new Vector3(0f, 0.5f, directionZ);
-                break;
-        }
-
-        return direction;
+        return new Vector3(CurrentEnemyOffset + Random.Range(MinPos, MaxPos), 0, directionZ);
     }
 }

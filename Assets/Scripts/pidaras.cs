@@ -16,6 +16,13 @@ public class pidaras : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            LEFT();
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            RIGHT();
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            JUMP();
+
         if (swipeControls.Tap) //если тап
         {
             returnBoostersAlpha(); //показываем бустеры на экране
@@ -52,7 +59,7 @@ public class pidaras : MonoBehaviour
         }
         if (jump)
         {
-            gameObject.transform.position = Vector3.MoveTowards(transform.position, new Vector3(PlayerController1.player.transform.position.x, 1.5f, PlayerController1.player.transform.position.z), Time.deltaTime * 9);
+            gameObject.transform.position = Vector3.MoveTowards(transform.position, new Vector3(PlayerController1.player.transform.position.x, 2f, PlayerController1.player.transform.position.z), Time.deltaTime * 9);
             StartCoroutine(StopJump());
         }
         if (backJump)

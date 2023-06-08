@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class LocationController : MonoBehaviour
 {
-    public static GameObject location_Village; //длина 263.2 //263.1 для фореста, не знаю почему
-    public static GameObject location_Forest; //длина 262.4
-    public static GameObject location_Desert;
-    private static GameObject location;
-    private static int lastLocation;
+    public GameObject location_Village; //длина 263.2 //263.1 для фореста, не знаю почему
+    public GameObject location_Forest; //длина 262.4
+    public GameObject location_Desert;
+    private GameObject location;
+    private int lastLocation;
 
     public static Vector3 position;
     private void Start()
@@ -18,8 +18,10 @@ public class LocationController : MonoBehaviour
         location_Village = GameObject.FindGameObjectWithTag("Village");
         location_Desert = GameObject.FindGameObjectWithTag("Desert");
         lastLocation = 0; // 0 - деревня, 1 - лес, 2 - пустыня
+
+        InvokeRepeating("CreateNewLocation", 0f, 10f);
     }
-    public static void CreateNewLocation()
+    public void CreateNewLocation()
     {
         int random = Random.Range(0, 3);
 
@@ -51,6 +53,6 @@ public class LocationController : MonoBehaviour
                 lastLocation = 2;
                 break;
         }
-        Instantiate(location, position, Quaternion.identity);
+        var GO = Instantiate(location, position, Quaternion.identity);
     }
 }
