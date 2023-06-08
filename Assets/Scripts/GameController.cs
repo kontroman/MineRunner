@@ -49,25 +49,9 @@ public class GameController : MonoBehaviour {
 
     public static void UpdateTexts()
     {
-        if(Booster1 > 0)
-            CountBooster1.text = "" + Booster1;
-        else
-            CountBooster1.text = "";
-
-        if (Booster2 > 0)
-            CountBooster2.text = "" + Booster2;
-        else
-            CountBooster2.text = "";
-
-        if (Booster3 > 0)
-            CountBooster3.text = "" + Booster3;
-        else
-            CountBooster3.text = "";
-
-        if (Booster4 > 0)
-            CountBooster4.text = "" + Booster4;
-        else
-            CountBooster4.text = "";
-        diamondsText.text = "" + diamonds;
+        for(int i = 0; i < boosters.count; i++)
+        {
+            boosterTexts[i].text = boosters[i]._boosterCount.ToString();
+        }
     }
 }

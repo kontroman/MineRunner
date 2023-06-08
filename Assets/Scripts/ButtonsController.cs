@@ -72,12 +72,12 @@ public class ButtonsController : MonoBehaviour {
         }
         PlaySound();
     }
-    public void BuyBooster1()
+    public void BuyBooster(Booster booster)
     {
-        if(GameController.priceBooster1 < GameController.diamonds)
+        if(GameController.GetPrice(booster) < GameController.diamonds)
         {
-            GameController.diamonds -= GameController.priceBooster1;
-            GameController.Booster1++;
+            GameController.diamonds -= GameController.GetPrice(booster);
+            GameController.AddBooster(booster);
         }
         GameController.UpdateTexts();
         PlaySound();

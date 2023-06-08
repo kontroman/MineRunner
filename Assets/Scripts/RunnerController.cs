@@ -176,18 +176,17 @@ public class RunnerController : MonoBehaviour
         }
     }
 
-    public void UseBooster1()
+    public void UseBooster(Booster booster)
     {
-        HiderBoosters.timeLastUseBooster = 15;
-        if (GameController.Booster1 > 0 && PlayerController1.armor < 6)
+        if (booster.GetCount > 0)
         {
-            PlayerController1.armor += 2;
-            DrawArmor(PlayerController1.armor);
-            GameController.Booster1 -= 1;
+            _boosterCount.UseBooster();
+
             UpdateTextBoosters();
             Drink();
-        }else
-        NoDrink();
+        }
+        else
+            NoDrink();
     }
 
     public void UseBooster2()

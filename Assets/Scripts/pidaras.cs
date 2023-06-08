@@ -16,56 +16,9 @@ public class pidaras : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-            LEFT();
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-            RIGHT();
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
-            JUMP();
+        Direction dir = swipeControls.GetCurrentSwipe();
 
-        if (swipeControls.Tap) //если тап
-        {
-            returnBoostersAlpha(); //показываем бустеры на экране
-        }
-        if (swipeControls.SwipeLeft)
-        {
-            LEFT();
-        }
-        if (swipeControls.SwipeRight)
-        {
-            RIGHT();
-        }
-        if (swipeControls.SwipeUp)
-        {
-            JUMP();
-        }
-        if (center_left)
-        {
-            gameObject.transform.position = Vector3.MoveTowards(transform.position, PlayerController1.LeftPosition, Time.deltaTime * 9);
-        }
-
-        if (center_right)
-        {
-            gameObject.transform.position = Vector3.MoveTowards(transform.position, PlayerController1.RightPosition, Time.deltaTime * 9);
-        }
-
-        if (left_center)
-        {
-            gameObject.transform.position = Vector3.MoveTowards(transform.position, PlayerController1.CenterPosition, Time.deltaTime * 9);
-        }
-        if (right_center)
-        {
-            gameObject.transform.position = Vector3.MoveTowards(transform.position, PlayerController1.CenterPosition, Time.deltaTime * 9);
-        }
-        if (jump)
-        {
-            gameObject.transform.position = Vector3.MoveTowards(transform.position, new Vector3(PlayerController1.player.transform.position.x, 2f, PlayerController1.player.transform.position.z), Time.deltaTime * 9);
-            StartCoroutine(StopJump());
-        }
-        if (backJump)
-        {
-            gameObject.transform.position = Vector3.MoveTowards(transform.position, new Vector3(PlayerController1.player.transform.position.x, 0, PlayerController1.player.transform.position.z), Time.deltaTime * 9);
-        }
+        MovePlayer(dir);
     }
 
     public void LEFT()
