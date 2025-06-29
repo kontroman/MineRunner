@@ -77,6 +77,6 @@ public class EnemiesController : MonoBehaviour
 
     Vector3 SelectDirection()
     {
-        return new Vector3(CurrentEnemyOffset + Random.Range(MinPos, MaxPos), 0, directionZ);
+        return Vector3.zero;
     }
 }

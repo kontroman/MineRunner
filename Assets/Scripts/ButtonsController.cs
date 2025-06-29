@@ -74,13 +74,7 @@ public class ButtonsController : MonoBehaviour {
     }
     public void BuyBooster(Booster booster)
     {
-        if(GameController.GetPrice(booster) < GameController.diamonds)
-        {
-            GameController.diamonds -= GameController.GetPrice(booster);
-            GameController.AddBooster(booster);
-        }
-        GameController.UpdateTexts();
-        PlaySound();
+
     }
     public void BuyBooster2()
     {

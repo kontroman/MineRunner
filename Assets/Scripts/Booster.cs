@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Booster : MonoBehaviour
 {
     private int _boosterCount;
-    private BoosterType _type;
+    //private BoosterType _type;
     private int _boosterPrice;
 
     public int GetPrice { get { return _boosterPrice; } }
@@ -24,6 +24,6 @@ public class Booster : MonoBehaviour
 
         _boosterCount -= 1;
 
-        _type.Effect.Activate();
+        //_type.Effect.Activate();
     }
 }

@@ -49,9 +49,6 @@ public class GameController : MonoBehaviour {
 
     public static void UpdateTexts()
     {
-        for(int i = 0; i < boosters.count; i++)
-        {
-            boosterTexts[i].text = boosters[i]._boosterCount.ToString();
-        }
+
     }
 }

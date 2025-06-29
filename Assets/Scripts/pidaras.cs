@@ -16,9 +16,7 @@ public class pidaras : MonoBehaviour
 
     void Update()
     {
-        Direction dir = swipeControls.GetCurrentSwipe();
 
-        MovePlayer(dir);
     }
 
     public void LEFT()

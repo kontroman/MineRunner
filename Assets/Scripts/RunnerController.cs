@@ -180,7 +180,6 @@ public class RunnerController : MonoBehaviour
     {
         if (booster.GetCount > 0)
         {
-            _boosterCount.UseBooster();
 
             UpdateTextBoosters();
             Drink();
